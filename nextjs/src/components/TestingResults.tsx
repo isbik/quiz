@@ -9,11 +9,15 @@ interface Props {
   correct: number;
 }
 
-const Title = styled.h2`
+const Title = styled.p`
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const CongratulationText = styled.p`
@@ -48,7 +52,7 @@ const TestingResults: FC<Props> = ({ name, total, correct }) => {
     <div className="p-4 text-center">
       <Title className="mb-4">
         Вы завершили тестирование:
-        <span className="weight-bold">{name}</span>
+        <strong>{name}</strong>
       </Title>
 
       <CongratulationText>Поздравляем</CongratulationText>
