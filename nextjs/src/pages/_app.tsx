@@ -11,6 +11,7 @@ import { setUser } from "./../modules/User/user-store";
 import Router from "next/router";
 import { setLoadingPage } from "./../effector/router-state";
 import PageLoader from "../components/PageLoader";
+import { themeValues } from './../effector/theme-state';
 
 //Binding events.
 Router.events.on("routeChangeStart", () => setLoadingPage(true));
@@ -30,15 +31,15 @@ class MyApp extends App<any> {
 
       if (token) {
         setToken(token);
-        
+
         api
-        .get("/auth/me")
-        .then(({ data }) => {
-          setUser(data);
-        })
-        .catch(() => {
-          localStorage.removeItem("token");
-        });
+          .get("/auth/me")
+          .then(({ data }) => {
+            setUser(data);
+          })
+          .catch(() => {
+            localStorage.removeItem("token");
+          });
       }
     }
 
@@ -58,7 +59,7 @@ class MyApp extends App<any> {
             type="text/css"
           />
         </Head>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={{ ...theme, ...themeValues.getState() }}>
           <Layout>
             <GlobalStyle />
             <Component {...pageProps} />

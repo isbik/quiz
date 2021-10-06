@@ -12,7 +12,7 @@ import {
 const Option = styled.div`
   min-width: 300px;
 
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
 
   color: ${({ theme }) => theme.colors.primary.main};
   background-color: ${({ theme }) => theme.colors.white};

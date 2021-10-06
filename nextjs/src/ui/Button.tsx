@@ -26,7 +26,7 @@ const StyledButton = styled.button<IButton>`
 
   position: relative;
   border: none;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
   border: 0.1px solid transparent;
   background: ${({ color }) => TYPES[color] || color || "black"};
 
@@ -34,7 +34,7 @@ const StyledButton = styled.button<IButton>`
   height: ${({ height }) => height || "auto"};
 
   border: none;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
 
   border: 0.1px solid transparent;
 

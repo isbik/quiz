@@ -42,7 +42,7 @@ const InputWrapper = styled.div<any>`
   border: 1px solid
     ${({ error, theme }) => (error ? theme.colors.error : "#ffffff00")};
 
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
 
   background: ${({ primary, theme }) =>
     primary ? theme.colors.primary.light : theme.colors.white};

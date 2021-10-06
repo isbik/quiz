@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import display from "./display";
 import reset from "./reset";
 import generateSpacings from "./spacing";
-import quiz from './_quiz';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -18,8 +17,6 @@ const GlobalStyle = createGlobalStyle`
     max-width: 600px;
   }
 
-  /* TODO move to modules */
-  ${quiz}
 `;
 
 export default GlobalStyle

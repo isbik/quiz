@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { LogOut } from "react-feather";
+import { Layout, LogOut } from "react-feather";
 import styled from "styled-components";
 import { Button, Card } from "../../ui";
 import Link from "./../../components/Link";
@@ -14,9 +14,8 @@ const Avatar = styled.div`
 
   background: ${({ theme }) => theme.colors.accent};
 `;
-const LogoutLink = styled(Link)`
-  margin-left: auto;
-  padding-right: 5px;
+const MenuLink = styled(Link)`
+  padding-right: 10px;
   cursor: pointer;
 
   &:hover {
@@ -24,7 +23,7 @@ const LogoutLink = styled(Link)`
   }
 `;
 
-interface Props {}
+interface Props { }
 
 enum Types {
   post,
@@ -43,10 +42,13 @@ const Profile: FC<Props> = (props) => {
           style={{ top: 30, position: "relative" }}
         >
           <Avatar />
-          <p className="m-0">Inav Dudnev</p>
-          <LogoutLink href="/auth">
+          <p className="m-0" style={{ marginRight: 'auto' }}>Inav Dudnev</p>
+          <MenuLink href="/settings">
+            <Layout />
+          </MenuLink>
+          <MenuLink href="/auth">
             <LogOut />
-          </LogoutLink>
+          </MenuLink>
         </div>
       </Card>
 

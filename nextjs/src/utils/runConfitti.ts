@@ -9,18 +9,19 @@ function createElements(root, elementCount) {
     element.style["background-color"] = color;
     element.style.width = "10px";
     element.style.height = "10px";
-    element.style.position = "absolute";
+    element.style.position = "fixed";
     root.appendChild(element);
     return element;
   });
 }
 
-function randomPhysics(angle, spread, startVelocity) {
+function randomPhysics(angle, spread, startVelocity, root) {
+  const { width, height } = root.getBoundingClientRect()
   const radAngle = angle * (Math.PI / 180);
   const radSpread = spread * (Math.PI / 180);
   return {
-    x: 0,
-    y: 0,
+    x: width / 2,
+    y: height / 2,
     wobble: Math.random() * 10,
     velocity: startVelocity * 0.5 + Math.random() * startVelocity,
     angle2D: -radAngle + (0.5 * radSpread - Math.random() * radSpread),
@@ -51,7 +52,7 @@ function updateFetti(fetti, progress, decay) {
 }
 
 function animate(root, fettis, decay) {
-  const totalTicks = 50;
+  const totalTicks = 35;
   let tick = 0;
 
   function update() {
@@ -78,10 +79,12 @@ export function confetti(
     elementCount = 50,
   } = {}
 ) {
+  if (!root) return
+
   const elements = createElements(root, elementCount);
   const fettis = elements.map((element) => ({
     element,
-    physics: randomPhysics(angle, spread, startVelocity),
+    physics: randomPhysics(angle, spread, startVelocity, root),
   }));
 
   animate(root, fettis, decay);

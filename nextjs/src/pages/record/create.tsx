@@ -35,7 +35,7 @@ const TypeRadio = styled.div<{ active?: boolean }>`
 
   border-color: ${({ active }) => (active ? "" : "#BB6BE7;")};
 
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
 
   font-weight: bold;
   font-size: 16px;
