@@ -39,7 +39,6 @@ const ResultText = styled.span<{ color: string }>`
 const TestingResults: FC<Props> = ({ name, total, correct }) => {
   const colorResult = useMemo(() => {
     const procent = (100 / total) * correct;
-
     if (procent < 25) return "error";
     if (procent < 55) return "danger";
     return "success";
