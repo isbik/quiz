@@ -41,9 +41,7 @@ const AddRecordModal = (props) => {
   const router = useRouter();
   const modal = useStore($createRecordModalStore);
 
-  useEffect(() => {
-    closeCreateRecordModal();
-  }, [router.pathname]);
+
   return (
     <Modal
       close={() => closeCreateRecordModal()}
@@ -54,7 +52,7 @@ const AddRecordModal = (props) => {
     >
       {options.map(({ link, text }, index) => (
         <Link key={link} href={link}>
-          <Option className="py-2 mb-2 text-center">{text}</Option>
+          <Option onClick={() => closeCreateRecordModal()} className="py-2 mb-2 text-center">{text}</Option>
         </Link>
       ))}
     </Modal>

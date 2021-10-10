@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
   
   .container {
     margin: 0 auto;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     max-width: 600px;
   }
 

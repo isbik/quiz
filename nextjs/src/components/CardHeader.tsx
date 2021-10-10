@@ -12,7 +12,7 @@ interface ICardHeaderProps {
 const Avatar = styled.div`
   margin-right: 10px;
   border-radius: 50%;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
 
   background: ${({ theme }) => theme.colors.primary.light};
