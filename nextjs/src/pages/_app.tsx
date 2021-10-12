@@ -6,12 +6,13 @@ import Main from "../layouts/Main";
 import { setToken } from "../modules/Auth/auth-store";
 import theme from "../styles/theme";
 import GlobalStyle from "../styles/_index";
-import { api } from "./../api/axios";
 import { setUser } from "./../modules/User/user-store";
 import Router from "next/router";
 import { setLoadingPage } from "./../effector/router-state";
 import PageLoader from "../components/PageLoader";
-import { themeValues } from './../effector/theme-state';
+import { themeValues } from "./../effector/theme-state";
+import { api } from "./../services/api-service";
+import Notifications from "./../components/Notifications";
 
 //Binding events.
 Router.events.on("routeChangeStart", () => setLoadingPage(true));
@@ -26,6 +27,7 @@ class MyApp extends App<any> {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    // @ts-ingore
     if (process.browser) {
       const token = localStorage.getItem("token");
 
@@ -64,6 +66,7 @@ class MyApp extends App<any> {
             <GlobalStyle />
             <Component {...pageProps} />
             <PageLoader />
+            <Notifications />
           </Layout>
         </ThemeProvider>
       </>

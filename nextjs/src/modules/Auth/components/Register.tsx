@@ -2,6 +2,7 @@ import { useStore } from "effector-react";
 import { useRouter } from "next/router";
 import * as React from "react";
 import styled from "styled-components";
+import { api } from "../../../services/api-service";
 import Button from "../../../ui/Button";
 import Input from "../../../ui/Input";
 import {
@@ -11,14 +12,13 @@ import {
   setToken,
   toggleLoginForm,
 } from "../auth-store";
-import { api } from "./../../../api/axios";
 import { setUser } from "./../../User/user-store";
 import { authFormStore } from "./../auth-store";
 import AuthContent from "./AuthContent";
 import AuthHeader from "./AuthHeader";
 import PrimaryLink from "./PrimaryLink";
 
-export interface IAppProps {}
+export interface IAppProps { }
 
 const YourEmailHelper = styled.p`
   font-weight: 500;

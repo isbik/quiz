@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PrimaryLink from "../modules/Auth/components/PrimaryLink";
 import Register from "../modules/Auth/components/Register";
-import { api } from "./../api/axios";
+import { api } from "../services/api-service";
 import Empty from "./../layouts/Empty";
 import {
   authFormStore,
@@ -20,7 +20,7 @@ import Button from "./../ui/Button";
 import Checkbox from "./../ui/Checkbox";
 import Input from "./../ui/Input";
 
-interface Props {}
+interface Props { }
 
 const Wrapper = styled.div`
   width: 100vw;
