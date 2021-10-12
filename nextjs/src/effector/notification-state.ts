@@ -4,18 +4,29 @@ import { createStore, createEvent, } from 'effector';
 export const addNotification = createEvent<any>()
 export const deleteNotification = createEvent<string>()
 
+const timeouts = []
+
 export const $notificationStore = createStore({
   items: [],
 })
   .on(addNotification, (state, item) => {
 
-    setTimeout(() => {
-      deleteNotification(item.id)
-    }, 3000)
+    const items = [item, ...state.items]
+
+    timeouts.forEach(id => {
+      clearInterval(id)
+    })
+
+    items.forEach(({ id }, index) => {
+      timeouts.push(setTimeout(() => {
+        deleteNotification(id)
+      }, 3000 + index * 3000))
+    })
+
 
     return {
       ...state,
-      items: [item, ...state.items]
+      items
     }
   })
   .on(deleteNotification, (state, id) => ({
