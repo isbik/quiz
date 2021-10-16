@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledLabel = styled.span`
+export const Label = styled.span`
   margin-bottom: 5px;
 
   font-weight: bold;
@@ -95,7 +95,7 @@ const Input: FC<Props & any> = ({
       {...wrapperProps}
       className={clsx(className, wrapperProps.className)}
     >
-      {label && <StyledLabel>{label}</StyledLabel>}
+      {label && <Label>{label}</Label>}
       <InputWrapper error={error} primary={primary}>
         {append && append}
         <StyledInput as={Component} {...props} />

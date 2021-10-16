@@ -5,6 +5,8 @@ import useField from "./../../hooks/useField";
 import postApi from "../../modules/Record/api-post";
 import { addNotification } from "./../../effector/notification-state";
 import uid from "../../utils/uid";
+import Editor from "./../../components/Editor";
+import { Label } from "./../../ui/Input";
 
 interface Props {}
 
@@ -45,11 +47,11 @@ const Post = (props: Props) => {
           placeholder="Мой заголовок"
         />
 
-        <Input
+        <Label>Описание публикации</Label>
+        <Editor
           {...content}
           className="mb-2"
-          placeholder="Описание публикации"
-          label="Контент"
+          placeholder="Контент"
           component="textarea"
           rows="5"
         />
