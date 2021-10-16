@@ -22,6 +22,14 @@ const Post = (props: Props) => {
           subtitle: name.value,
           type: "success",
         });
+      })
+      .catch(() => {
+        addNotification({
+          id: uid(),
+          title: "Ошибка при создании записи",
+          subtitle: name.value,
+          type: "error",
+        });
       });
   };
 
